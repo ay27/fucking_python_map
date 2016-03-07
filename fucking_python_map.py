@@ -1,11 +1,10 @@
 from __future__ import print_function
-
 import copy
 import multiprocessing as mp
-
 import math
-
 import sys
+
+# author: ay27
 
 
 PY_VERSION = sys.version_info.major
@@ -23,7 +22,7 @@ def _auto_split(length, count):
     start = []
     end = []
     fr = int(math.ceil(length / float(count)))
-    tt = fr*count - length
+    tt = fr * count - length
     pc = 0
     for ii in range(count - tt):
         start.append(pc)
@@ -67,5 +66,7 @@ def fucking_map(func, iterable, process_count=mp.cpu_count()):
 
 if __name__ == '__main__':
     def func(xx, yy):
-        return xx*yy
+        return xx * yy
+
+
     print(fucking_map(lambda kk: func(kk, 2), range(100), 6))
