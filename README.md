@@ -4,7 +4,7 @@
 然而很多时候我们确实想要用最少的改动完成并行，这个repo就是为此需要而生。
 
 ### 调用方法
-result_list = async_run(func, iterable, process_count=cpu_count())
+result_list = fucking_map(func, iterable, process_count=cpu_count())
 
 ### 代码环境
 python2 or python3

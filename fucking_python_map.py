@@ -52,7 +52,7 @@ class _Worker(mp.Process):
             self.result[ii] = self.func(self.data[ii])
 
 
-def async_run(func, iterable, process_count=mp.cpu_count()):
+def fucking_map(func, iterable, process_count=mp.cpu_count()):
     manager = mp.Manager()
     data = manager.list(iterable)
     start_index, end_index = _auto_split(len(data), process_count)
@@ -68,4 +68,4 @@ def async_run(func, iterable, process_count=mp.cpu_count()):
 if __name__ == '__main__':
     def func(xx, yy):
         return xx*yy
-    print(async_run(lambda kk: func(kk, 2), range(100), 6))
+    print(fucking_map(lambda kk: func(kk, 2), range(100), 6))
