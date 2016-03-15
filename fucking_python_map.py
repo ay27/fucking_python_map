@@ -3,6 +3,7 @@ import copy
 import multiprocessing as mp
 import math
 import sys
+import platform
 
 # author: ay27
 
@@ -52,6 +53,9 @@ class _Worker(mp.Process):
 
 
 def fucking_map(func, iterable, process_count=mp.cpu_count()):
+    # fucking windows
+    if "Windows" in platform.platform():
+        return list(map(func, iterable))
     manager = mp.Manager()
     data = manager.list(iterable)
     start_index, end_index = _auto_split(len(data), process_count)
